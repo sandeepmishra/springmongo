@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+<!-- using setter injection -->
+	<bean id="employee" class="org.spring.series.core.bean.Employee">
+		<property name="name" value="Mark"></property>
+		<property name="age" value="32"></property>
+		<property name="employeeCode" value="E10910"></property>
+		<property name="designation" value="Software Architect"></property>
+		<property name="address" ref="address"/>
+	</bean>
+	<bean id="address" class="org.spring.series.core.bean.Address">
+		<property name="addressLine1" value="A-113, SVS PALMS1" />
+		<property name="state" value="KA"/>
+		<property name="city" value="Bengaluru"/>
+		<property name="zip" value="560037"/>
+	</bean>
+	
+	<!-- constructor injection -->
+	<bean id="consAddress" class="org.spring.series.core.bean.Address">
+		<constructor-arg name="addressLine1" value="A-113, SVS PALMS1" />
+		<constructor-arg name="state" value="KA"/>
+		<constructor-arg name="city" value="Bengaluru"/>
+		<constructor-arg name="zip" value="560037"/>
+	</bean>
+</beans>
