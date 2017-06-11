@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+    
+    <!-- support for mvc-annotation -->
+    <context:annotation-config />
+    
+    <!-- scan packages to register controllers which are annotated -->
+    <context:component-scan base-package="org.spring.series.mvc.controller" />
+
+	<!-- register beans for handling incoming HTTP requests -->
+	<bean name="/firstmvc" class="org.spring.series.mvc.controller.HelloWorldMVCController" />
+
+	<!-- view resolver for rendering the final output -->
+	
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/view/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+</beans>

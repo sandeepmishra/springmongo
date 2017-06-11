@@ -4,8 +4,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
  http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
+	<!-- to turn on annotation-based configuration -->
+	<context:annotation-config />
+	<context:component-scan base-package="org.spring.series" />
+
 	<!-- using setter injection -->
-	<bean id="employee" class="org.spring.series.core.bean.Employee">
+	<bean id="employee" class="org.spring.series.core.bean.EmployeeAutowired">
 		<property name="name" value="Mark"></property>
 		<property name="age" value="32"></property>
 		<property name="employeeCode" value="E10910"></property>
@@ -19,21 +23,11 @@
 		<property name="zip" value="560037" />
 	</bean>
 
-	<!-- constructor injection -->
-	<bean id="consAddress" class="org.spring.series.core.bean.Address">
-		<constructor-arg name="addressLine1" value="A-113, SVS PALMS1" />
-		<constructor-arg name="state" value="KA" />
-		<constructor-arg name="city" value="Bengaluru" />
-		<constructor-arg name="zip" value="560037" />
+	<bean id="address1" class="org.spring.series.core.bean.Address" autowire="byName">
+		<property name="addressLine1" value="A-113, SVS PALMS1" />
+		<property name="state" value="KA" />
+		<property name="city" value="Bengaluru" />
+		<property name="zip" value="560037" />
 	</bean>
 
-	<!-- bean scope (singleton, prototype, request, session, global-session) -->
-	
-	<bean id="consAddressProtyType" class="org.spring.series.core.bean.Address"
-		scope="prototype">
-		<constructor-arg name="addressLine1" value="A-113, SVS PALMS1" />
-		<constructor-arg name="state" value="KA" />
-		<constructor-arg name="city" value="Bengaluru" />
-		<constructor-arg name="zip" value="560037" />
-	</bean>
 </beans>

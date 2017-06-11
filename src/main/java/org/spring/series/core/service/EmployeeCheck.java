@@ -30,7 +30,9 @@ public class EmployeeCheck {
 		System.out.println(employee.toString());
 		
 		/**
-		 * 
+		 * 1. partial injection is possible with setter but not in constructure injection
+		 * 2. constructor injection are immutable but setter are mutable
+		 * 3. constructor injection for mandatory fields
 		 */
 		Address address = (Address)context.getBean("consAddress");//through constructor injection
 		System.out.println(address.toString());
