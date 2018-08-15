@@ -9,12 +9,12 @@
 	<context:component-scan base-package="org.spring.series" />
 
 	<!-- using setter injection -->
-	<bean id="employee" class="org.spring.series.core.bean.EmployeeAutowired">
+	<bean id="employee" class="org.spring.series.core.bean.EmployeeAutowired" autowire="byType">
 		<property name="name" value="Mark"></property>
 		<property name="age" value="32"></property>
 		<property name="employeeCode" value="E10910"></property>
 		<property name="designation" value="Software Architect"></property>
-		<property name="address" ref="address" />
+		<!-- <property name="address" ref="address" /> -->
 	</bean>
 	<bean id="address" class="org.spring.series.core.bean.Address">
 		<property name="addressLine1" value="A-113, SVS PALMS1" />
@@ -23,7 +23,7 @@
 		<property name="zip" value="560037" />
 	</bean>
 
-	<bean id="address1" class="org.spring.series.core.bean.Address" autowire="byName">
+	<bean id="address1" class="org.spring.series.core.bean.Address">
 		<property name="addressLine1" value="A-113, SVS PALMS1" />
 		<property name="state" value="KA" />
 		<property name="city" value="Bengaluru" />

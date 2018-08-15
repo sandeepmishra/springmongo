@@ -1,13 +1,16 @@
 package org.spring.series.core.bean;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+
 public class EmployeeAutowired {
-
-
 
 	private String name;
 	private String age;
 	private String employeeCode;
 	private String designation;
+	@Autowired
+    @Qualifier("address")
 	private Address address;
 	
 	public String getName() {
